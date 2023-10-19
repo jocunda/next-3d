@@ -2,7 +2,7 @@ import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three-stdlib";
 
 export const Model = () => {
-    const gltf = useLoader(GLTFLoader, "/models/scene.gltf");
+    const gltf = useLoader(GLTFLoader, "/models/avatar.gltf");
 
     return (
       <>

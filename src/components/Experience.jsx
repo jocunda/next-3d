@@ -6,12 +6,11 @@ export const Experience = () => {
   return (
     <>
       <OrbitControls />
-      <Model/>
-      <mesh>
-        <boxGeometry />
-        <meshNormalMaterial />
-        
-      </mesh>
+      <group position-y={-1}>
+        <Model />
+      </group>
+      <ambientLight intensity={2} />
+      
     </>
   );
 };

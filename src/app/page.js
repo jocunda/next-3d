@@ -17,13 +17,6 @@ export default function Home() {
   return (
     <main className="w-screen h-screen flex flex-col items-center justify-between">
       <Canvas shadows camera={{ position: [0, 2, 5], fov: 30 }}>
-        <ambientLight intensity={0.5} />
-        <spotLight
-          intensity={0.1}
-          angle={0.6}
-          penumbra={8}
-          position={[10, 15, 10]}
-        />
         <Experience />
       </Canvas>
     </main>
