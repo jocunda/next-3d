@@ -37,7 +37,7 @@ export function AvatarRPM(props) {
     group.current.getObjectByName("Head").lookAt(target)
   })
 
-   const animationName = useMemo(() => animations[index].name, [index]);
+  const animationName = useMemo(() => animations[index].name, [index]);
 
   useEffect(() => {
     actions[animationName].reset().fadeIn(0.5).play();
@@ -48,9 +48,6 @@ export function AvatarRPM(props) {
 
   useEffect(() => void (document.body.style.cursor = hovered ? "pointer" : "auto"), [hovered])
 
-  useEffect(() => {
-    group.current.rotation.x = -Math.PI / 2;
-  }, []);
 
   return (
   <group {...props} ref={group} dispose={null}>
