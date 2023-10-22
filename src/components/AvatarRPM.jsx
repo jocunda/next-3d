@@ -7,29 +7,27 @@ import { useFBX, useGLTF, useAnimations } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-export function AvatarRPM(props) {
-  // const { animation } = props;
+export function AvatarRPM (props) {
+  
   const [hovered, setHovered] = useState(false)
   const [index, setIndex] = useState(3)
   
   const group = useRef();
   const { nodes, materials } = useGLTF("models/avatarRPM.glb");
 
-  function loadFBXAnimation (animationPath, name) {
-    const { animations } = useFBX(animationPath);
-    animations[0].name = name;
-    return animations[0];
-  };
+  const { animations: idleAnimation } = useFBX("animations/Idle.fbx");
+  const { animations: handleIdleAnimation } = useFBX("animations/HandleIdle.fbx");
+  const { animations: hotIdleAnimation } = useFBX("animations/HotIdle.fbx");
+  const { animations: greetingAnimation } = useFBX("animations/Greeting.fbx");
 
-  const animations = [
-    loadFBXAnimation("animations/Idle.fbx", "Idle"),
-    loadFBXAnimation("animations/HandleIdle.fbx", "HandIdle"),
-    loadFBXAnimation("animations/HotIdle.fbx", "HotIdle"),
-    loadFBXAnimation("animations/Greeting.fbx", "Greeting"),
-  ];
-  console.log(animations[0].name)
+  idleAnimation[0].name = "Idle";
+  handleIdleAnimation[0].name = "HandIdle";
+  hotIdleAnimation[0].name = "HotIdle";
+  greetingAnimation[0].name = "Greeting"
 
-  const { actions } = useAnimations(animations, group);
+  const animationArray=[idleAnimation[0], handleIdleAnimation[0], hotIdleAnimation[0], greetingAnimation[0]]
+
+  const { actions } = useAnimations(animationArray,group);
 
   useFrame((state) => {
     const target = new THREE.Vector3(state.mouse.x, state.mouse.y, 1)
@@ -37,11 +35,11 @@ export function AvatarRPM(props) {
   })
 
   useEffect(() => {
-    actions[animations[index].name].reset().fadeIn(0.5).play();
+    actions[animationArray[index].name].reset().fadeIn(0.5).play();
     return () => {
-      actions[animations[index].name].reset().fadeOut(0.5);
+      actions[animationArray[index].name].reset().fadeOut(0.5);
     };
-  }, [animations[index].name]);
+  }, [animationArray[index].name]);
 
   useEffect(() => void (document.body.style.cursor = hovered ? "pointer" : "auto"), [hovered])
 

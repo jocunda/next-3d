@@ -1,12 +1,11 @@
 import {
   Environment,
   Sky,
-  ambientLight,
   Float,
   MeshDistortMaterial,
-  MeshWobbleMaterial,
 } from "@react-three/drei";
-import { motion } from "framer-motion"
+
+import { motion } from "framer-motion-3d"
 
 import { AvatarRPM } from "./AvatarRPM"
 
@@ -20,11 +19,7 @@ export const ExperienceRPM = () => {
       <motion.group
         position={[0.6, -1.5, -1]}
         scale={1.2}
-        rotation-y={-Math.PI / 10}
-        animate={{
-          y: 0,
-        }}
-      >
+        rotation-y={-Math.PI / 10}>
         <AvatarRPM />
       </motion.group>
       <motion.group
