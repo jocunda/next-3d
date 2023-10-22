@@ -42,7 +42,7 @@ const AboutSection = () => {
   return (
     <Section>
       <h1 className="text-6xl font-extrabold leading-snug">
-        Hi 👋, I'm 
+        Hi 👋, I&rsquo;m
         <br />
         <span className="text-5xl px-1 italic">Silvia Jocunda</span>
       </h1>
