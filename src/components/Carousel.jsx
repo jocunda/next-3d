@@ -9,10 +9,29 @@ import work4 from "../images/workimage4.jpg"
 import work5 from "../images/workimage5.jpg"
 import work6 from "../images/workimage6.jpg"
 import work7 from "../images/workimage7.jpg"
+import work8 from "../images/workimage8.jpg"
+import work9 from "../images/workimage9.jpg"
 import blank from "../images/blank.jpg"
 
 
 const products = [
+  {
+    id: 11,
+    new:true,
+    name: "Live Chat-Nuxt",
+    href: "https://github.com/jocunda/live-chat-nuxt",
+    imageSrc: work9,
+    imageAlt: "Chat Nuxt",
+    text: "Realtime-live chat using Nuxt framework and Vue.js, supported with Pusher that will maintain messaging feature infrastructure.",
+  },
+  {
+    id: 10,
+    name: "E-commerce-Nuxt",
+    href: "https://github.com/jocunda/nuxt-test",
+    imageSrc: work8,
+    imageAlt: "Front Nuxt",
+    text: "E-commerce product card using Nuxt framework and Vue.js, combine with Tailwind css as styler. This project use data from fetch API.",
+  },
   {
     id: 9,
     name: "Web FrontEnd-Remix",
@@ -123,7 +142,9 @@ export default function Carousel() {
               </div>
             <div className="mt-4">
                 <a href="#">
-                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{product.name}</h5>
+                <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{product.name} &nbsp;
+                  {product.new ?<span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Latest</span>:""}
+                </h5>
                 </a>
               <p className="mb-3 font-normal text-xs text-gray-700">{product.text}</p>
                 
